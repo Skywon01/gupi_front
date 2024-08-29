@@ -1,0 +1,27 @@
+<nz-table [nzData]="tuyauDeUsers">
+    <thead>
+    <tr  class="user-head">
+
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Mail</th>
+        <th>Age</th>
+        <th>Adresse</th>
+        <th>Envoyer un fichier</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="user-row" *ngFor="let user of tuyauDeUsers">
+        <td><span nz-icon nzType="user" nzTheme="outline" style="font-size: 36px; color:#00000050; margin:0 12px 0 12px"></span>{{ user.name }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.address }}</td>
+        <td class="user-upload-file">
+            <app-upload-file-user [userId]="user.id" [senderName]="user.name" [senderFirstName]="user.firstName" (fileUploaded)="onFileUploaded(user.id)"></app-upload-file-user>
+        </td>
+    </tr>
+
+
+    </tbody>
+</nz-table>

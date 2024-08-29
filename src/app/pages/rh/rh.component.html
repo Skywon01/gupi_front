@@ -1,0 +1,11 @@
+<nz-tabset>
+    <nz-tab nzTitle="Ajouter un salarié">
+        <app-add-user-form (userAdded)="onUserAdded($event)"></app-add-user-form>
+    </nz-tab>
+    <nz-tab nzTitle="Envoyer fiche de paie">
+
+        <app-employee-list [tuyauDeUsers]="users"></app-employee-list>
+    </nz-tab>
+</nz-tabset>
+
+

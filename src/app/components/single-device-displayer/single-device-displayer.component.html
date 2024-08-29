@@ -1,0 +1,7 @@
+@if (device) {
+    <div>
+        <h2>{{ device.name }}</h2>
+        <p>Prix: {{ device.price | currency: '€' }}</p>
+        <p>QR Code: {{ device.qr_code }}</p>
+    </div>
+}

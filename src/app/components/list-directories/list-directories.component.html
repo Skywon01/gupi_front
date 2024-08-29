@@ -1,0 +1,113 @@
+@if (this.apiService.isAuthorized("USER")) {
+    <button nz-button nzType="primary" nzShape="round" class="add-folder"
+            (click)="showCreateDirectoryForm = !showCreateDirectoryForm">
+        Ajouter un dossier
+    </button>
+
+}
+<br/>
+<br/>
+<app-form-create-directory *ngIf="showCreateDirectoryForm"
+                           (directoryCreated)="onDirectoryCreated()"></app-form-create-directory>
+<div *ngFor="let directory of tuyauDeDirectory; let i = index">
+    <div [ngClass]="{'even-row': isEven(i), 'odd-row': !isEven(i)}" class="editable-row">
+        <div class="table-line">
+            <div class="table-line-icon" (click)="toggleDirectory(directory.id)">
+                <span nz-icon nzType="folder-open" nzTheme="fill" style="color:#00000050; font-size: 50px;"></span>
+                <div class="directory-text-container">
+                    <div class="directory-name">
+                        <ng-container *ngIf="!directoryToEdit || directoryToEdit !== directory.id">
+                            {{ directory.name }}
+                            @if (directory.name !== 'Documents envoyés') {
+                                <span nz-icon nzType="edit" nzTheme="fill" (click)="editDirectoryName(directory.id); $event.stopPropagation()"></span>
+
+                            }
+                        </ng-container>
+                        <ng-container *ngIf="directoryToEdit === directory.id">
+                            <input nz-input [(ngModel)]="newDirectoryName" placeholder="Nouveau nom"/>
+                            <button nz-button nzType="primary" (click)="saveDirectoryName(directory.id); $event.stopPropagation()">Enregistrer</button>
+                            <button nz-button nzType="default" (click)="cancelEdit(); $event.stopPropagation()">Annuler</button>
+                        </ng-container>
+                    </div>
+                    <div class="file-number">{{ directory.files?.length || 0 }} fichiers</div>
+                    <div>{{ directory.children?.length || 0 }} enfants</div>
+                </div>
+            </div>
+            @if (directory.name !== 'Documents envoyés') {
+
+                <div class="block-point" nz-popover [nzPopoverContent]="contentTemplate" nzPopoverPlacement="topRight"
+                     nzPopoverTrigger="click">⋮
+                </div>
+            }
+        </div>
+    </div>
+    <div *ngIf="openedDirectories.has(directory.id)">
+        @if(directory.name !== 'Documents envoyés'){
+
+        <app-upload-file [directoryId]="directory.id" (fileUploaded)="onFileUploaded()"></app-upload-file>
+        }
+        <app-list-file [directoryId]="directory.id"></app-list-file>
+        <ng-container *ngIf="directory.children?.length">
+            <ng-container *ngFor="let child of directory.children; let j = index">
+                <ng-container
+                    *ngTemplateOutlet="recursiveDirectoryTemplate; context: {$implicit: child, level: 1, index: j}"></ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+    <ng-template #contentTemplate>
+        <div>
+            <a (click)="toggleCreateChildDirectoryForm(directory.id)">Ajouter un sous-dossier</a><br>
+            <a (click)="deleteDirectory(directory.id)" style="color: red;">Supprimer</a> <br>
+            <div *ngIf="showCreateChildDirectoryForm.get(directory.id)">
+                <input type="text" [(ngModel)]="newChildDirectoryName" placeholder="Nom du sous-dossier"/>
+                <button nz-button nzType="primary" (click)="addChildDirectory(directory.id, newChildDirectoryName)">
+                    Créer
+                </button>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+<ng-template #recursiveDirectoryTemplate let-directory let-level="level" let-index="index">
+    <div [ngClass]="{'even-row': isEven(index), 'odd-row': !isEven(index)}" [ngStyle]="{'margin-left.px': level * 24}" class="editable-row">
+        <div class="table-line">
+            <div class="table-line-icon" (click)="toggleDirectory(directory.id)">
+                <span nz-icon nzType="folder-open" nzTheme="fill" style="color:#00000050; font-size: 50px;"></span>
+                <div class="directory-text-container">
+                    <div class="directory-name">
+                        <ng-container *ngIf="!directoryToEdit || directoryToEdit !== directory.id">
+                            {{ directory.name }}
+                            <span nz-icon nzType="edit" nzTheme="fill" (click)="editDirectoryName(directory.id); $event.stopPropagation()"></span>
+                        </ng-container>
+                        <ng-container *ngIf="directoryToEdit === directory.id">
+                            <input nz-input [(ngModel)]="newDirectoryName" placeholder="Nouveau nom"/>
+                            <button nz-button nzType="primary" (click)="saveDirectoryName(directory.id); $event.stopPropagation()">Enregistrer</button>
+                            <button nz-button nzType="default" (click)="cancelEdit(); $event.stopPropagation()">Annuler</button>
+                        </ng-container>
+                    </div>
+                    <div class="file-number">{{ directory.files?.length || 0 }} fichiers</div>
+                    <div>{{ directory.children?.length || 0 }} enfants</div>
+                </div>
+            </div>
+            <div class="block-point" nz-popover [nzPopoverContent]="contentTemplate" nzPopoverPlacement="topRight" nzPopoverTrigger="click">⋮</div>
+            <ng-template #contentTemplate>
+                <div>
+                    <a (click)="toggleCreateChildDirectoryForm(directory.id)">Ajouter un sous-dossier</a><br>
+                    <a (click)="deleteDirectory(directory.id)" style="color: red;">Supprimer</a> <br>
+                    <div *ngIf="showCreateChildDirectoryForm.get(directory.id)">
+                        <input type="text" [(ngModel)]="newChildDirectoryName" placeholder="Nom du sous-dossier"/>
+                        <button nz-button nzType="primary" (click)="addChildDirectory(directory.id, newChildDirectoryName)">
+                            Créer
+                        </button>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="openedDirectories.has(directory.id)">
+        <!-- Nested sub-directory structure -->
+        <ng-container *ngFor="let child of directory.children; let k = index">
+            <ng-container *ngTemplateOutlet="recursiveDirectoryTemplate; context: {$implicit: child, level: level + 1, index: k}"></ng-container>
+        </ng-container>
+    </div>
+</ng-template>

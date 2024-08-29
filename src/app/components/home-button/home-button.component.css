@@ -1,0 +1,29 @@
+.home-icon {
+    min-width: 250px;
+    height: 140px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 2rem 3rem 1rem;
+    transition-duration: .3s;
+    @media (width <=768px) {
+        height: 90px;
+        width: 350px;
+        margin: 1rem 1.5rem 0.5rem;
+    }
+}
+
+.home-icon:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.home-icon-content {
+    color: #FFFFFF;
+    font-family: "roboto", serif;
+    font-weight: normal;
+    font-size: 18px;
+    text-shadow: #001529 1px 0 4px;
+}

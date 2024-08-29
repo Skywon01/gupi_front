@@ -1,0 +1,13 @@
+<nz-list>
+    @for (file of files; track file.id) {
+        <nz-list-item>
+            <p (click)="download(file.id, file.original_file_name)" class="file-name">{{ file.original_file_name }}</p>
+            <div class="block-point" nz-popover [nzPopoverContent]="contentTemplate" nzPopoverPlacement="topRight" nzPopoverTrigger="click">⋮</div>
+        </nz-list-item>
+<ng-template #contentTemplate >
+    <a (click)="deleteFile(file.id)" style="color: red;">Supprimer</a> <br>
+</ng-template>
+    }
+</nz-list>
+
+

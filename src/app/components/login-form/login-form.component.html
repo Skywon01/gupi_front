@@ -1,0 +1,31 @@
+<form (ngSubmit)="loginForm()" [formGroup]="validateForm" class="login-form" nz-form>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Veuillez entrer votre identifiant!">
+            <label class="login-label">Identifiant</label>
+            <nz-input-group nzPrefixIcon="user" class="login-input">
+                <input formControlName="userName" nz-input placeholder="Identifiant" type="text"/>
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Veuillez entrer votre mot de passe!">
+            <label class="login-label">Mot de passe</label>
+            <nz-input-group nzPrefixIcon="lock" class="login-input">
+                <input formControlName="password" nz-input placeholder="Mot de passe" type="password"/>
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <div class="login-form-margin" nz-row>
+        <a class="login-form-forgot" (click)="forgot = !forgot">Mot de passe oublié ?</a>
+        @if(forgot){
+            <app-form-forgot-password></app-form-forgot-password>
+        }
+    </div>
+    @if(!forgot){
+
+    <button [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Je me connecte</button>
+    }
+    @if(forgot){
+        <a (click)="forgot = !forgot">Annuler</a>
+    }
+</form>

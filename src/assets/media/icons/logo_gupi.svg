@@ -1,0 +1,28 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="30" cy="30" r="30" fill="#FF8E31"/>
+<path d="M60.0032 30.8344L43.7188 14.553H16.3051V44.4372L31.8122 59.9418C47.2699 59.0264 59.5701 46.4174 60.0032 30.8344Z" fill="#ED7425"/>
+<rect x="18.6586" y="44.4359" width="2.96219" height="1" fill="#283A4D"/>
+<rect x="38.4038" y="44.4359" width="2.96254" height="1" fill="#283A4D"/>
+<rect x="16.3057" y="14.553" width="27.4132" height="29.8832" fill="#34495E"/>
+<rect x="18.6586" y="16.6595" width="22.7103" height="25.6695" fill="#283A4D"/>
+<rect x="19.0518" y="17.026" width="21.918" height="24.9372" fill="#5D6D7E"/>
+<rect x="17.6703" y="20.6797" width="2.3698" height="2.37038" fill="#283A4D"/>
+<rect x="18.8552" y="21.3385" width="2.50087" height="1.0543" fill="white"/>
+<rect x="17.6703" y="35.9395" width="2.3698" height="2.3698" fill="#283A4D"/>
+<rect x="18.8552" y="36.5967" width="2.50087" height="1.05313" fill="white"/>
+<circle cx="36.4079" cy="29.4959" r="2.2161" fill="white"/>
+<path d="M35.774 29.3064V35.4518C35.774 35.6141 35.8358 35.7762 35.9592 35.8996C36.0829 36.0233 36.2458 36.0848 36.407 36.0848C36.5694 36.0848 36.7314 36.0233 36.8551 35.8996C36.9784 35.7763 37.0394 35.6141 37.0394 35.4518V29.3064H35.774Z" fill="#34495E"/>
+<circle cx="36.4079" cy="29.4959" r="1.25606" fill="#283A4D"/>
+<circle cx="26.786" cy="29.4958" r="4.19867" fill="white"/>
+<circle cx="26.786" cy="29.4959" r="2.99947" fill="#283A4D"/>
+<circle cx="26.786" cy="29.4959" r="1.79956" fill="#34495E"/>
+<path d="M24.9858 29.4946C24.9858 30.4886 25.791 31.2947 26.7854 31.2947V27.6954C25.7911 27.6954 24.9858 28.5007 24.9858 29.4946Z" fill="#5D6D7E"/>
+<rect x="26.7259" y="26.5936" width="1" height="1" fill="white"/>
+<rect x="24.9852" y="27.7792" width="1" height="1" transform="rotate(-44.9514 24.9852 27.7792)" fill="white"/>
+<rect x="23.8838" y="29.4328" width="1" height="1" fill="white"/>
+<rect x="24.7736" y="31.5906" width="1" height="1" transform="rotate(-135.049 24.7736 31.5906)" fill="white"/>
+<rect x="26.7259" y="31.7978" width="1" height="1" fill="white"/>
+<rect x="28.8807" y="31.5031" width="1" height="1" transform="rotate(135.049 28.8807 31.5031)" fill="white"/>
+<rect x="29.0879" y="29.4328" width="1" height="1" fill="white"/>
+<rect x="29.0873" y="29.1059" width="1" height="1" transform="rotate(44.9514 29.0873 29.1059)" fill="white"/>
+</svg>

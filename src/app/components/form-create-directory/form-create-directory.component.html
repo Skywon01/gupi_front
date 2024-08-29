@@ -1,0 +1,16 @@
+<form nz-form [formGroup]="createDirectoryForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <nz-form-label nzFor="directoryName">Nom du dossier</nz-form-label>
+            <nz-input-group>
+                <input id="directoryName" formControlName="name" type="text" nz-input>
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+
+    <nz-form-item>
+        <button nz-button nzType="primary" [disabled]="!createDirectoryForm.valid">Créer</button>
+    </nz-form-item>
+    </nz-form-control>
+</form>

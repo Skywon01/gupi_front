@@ -1,0 +1,54 @@
+.block-point{
+    font-size: 32px;
+    align-content: center;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.block-point:hover{
+    cursor: pointer;
+}
+
+.table-line {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px 0 16px;
+}
+
+.table-line-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    :hover{
+        cursor: pointer;
+    }
+}
+.notification-container-parent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification-container{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.notification-name{
+    font-size: 20px;
+    font-weight: bold;
+    color: #00000095;
+}
+
+.file-number {
+    color: #00000080;
+    font-weight: normal;
+}
+
+tr:nth-child(odd){
+    background-color: #D7D7D7;
+}
+tr:nth-child(even){
+    background-color: #FFFFFF;
+}
+

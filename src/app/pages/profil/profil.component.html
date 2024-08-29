@@ -1,0 +1,80 @@
+@if (showUpdateProfile) {
+
+    <app-form-profile-edit [tuyauDeUsers]="user" (profileUpdate)="onProfileUpdate()"></app-form-profile-edit>
+}
+<div class="profil-page">
+
+<div class="profile-container">
+
+    <div nz-row>
+        <div>
+            <div
+                [nzAlign]="alignSegment[selectedLAlignment]"
+                [nzJustify]="justifySegment[1]"
+                class="btn-wrappers"
+                nz-flex
+            >
+                @if (user) {
+                    <div class="profil-col">
+                        <div class="profil-col-container">
+
+                            <div class="profil-pic-container">
+                                <div class="profil" [style.background-image]="'url(' + profileImageUrl + ')'"></div>
+                                <app-upload-profile-picture></app-upload-profile-picture>
+                            </div>
+                            <span [nzJustify]="justifySegment[1]" nz-flex nz-icon nzTheme="fill" nzType="edit" class="profil-edit" (click)="showUpdateProfile = !showUpdateProfile"></span>
+                        </div>
+                        <h3>{{ user.name }} {{ user.firstName }}</h3>
+                        <h2>Société</h2>
+                        <h2>{{ user.company }}</h2>
+                        <h3>Poste</h3>
+                        <h2> {{ user.job }} </h2>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+
+    </div>
+    <div nz-row>
+        <div>
+            <div
+                [nzAlign]="alignSegment[selectedLAlignment]"
+                [nzJustify]="justifySegment[1]"
+                class="btn-wrappers"
+                nz-flex
+            >
+
+                <div class="profil-col">
+                    <h2>Informations</h2>
+                    <h3>TBD</h3>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div nz-row>
+        <div>
+            <div
+                [nzAlign]="alignSegment[selectedLAlignment]"
+                [nzJustify]="justifySegment[1]"
+                class="btn-wrappers"
+                nz-flex
+            >
+
+                <div class="profil-col">
+                    <h2>Matériel</h2>
+
+                    <app-list-device-owned [tuyauDeDevices]="devices"></app-list-device-owned>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

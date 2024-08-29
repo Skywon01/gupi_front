@@ -1,0 +1,27 @@
+.user-head {
+    background-color: #FFFFFF !important;
+}
+
+th {
+    padding-left: 10px;
+}
+
+.user-upload-file {
+    padding: 12px;
+    width: 300px;
+
+}
+
+.user-upload-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+tr:nth-child(odd) {
+    background-color: #D7D7D7;
+}
+
+tr:nth-child(even) {
+    background-color: #FFFFFF;
+}

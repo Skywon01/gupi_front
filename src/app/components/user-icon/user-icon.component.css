@@ -1,0 +1,14 @@
+.user-icon {
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 6px;
+    float: right;
+    font-size: 24px;
+    margin-right: 8px;
+    margin-top: 12px;
+}
+
+.user-icon:hover {
+    cursor: pointer;
+}

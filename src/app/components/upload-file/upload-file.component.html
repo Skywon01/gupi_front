@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="form-upload">
+    <input type="file" id="file" (change)="onFileSelected($event)" #fileInput><br>
+    @if(selectedFile){
+    <button type="submit">Déposer</button>
+    }
+</form>

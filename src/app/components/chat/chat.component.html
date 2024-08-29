@@ -1,0 +1,33 @@
+<span nz-icon nzType="message" nzTheme="fill" class="IMIcon" (click)="chatIsOpen = !chatIsOpen"></span>
+<div *ngIf="chatIsOpen" class="chat">
+    <div class="chat-title">
+        <h1>{{ recipient?.name || 'Sélectionnez un utilisateur' }}</h1>
+        <span nz-icon nzType="close" nzTheme="outline" (click)="chatIsOpen = !chatIsOpen" class="close"></span>
+        <figure class="avatar">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" />
+        </figure>
+    </div>
+    <div class="user-list-container">
+        <nz-select [(ngModel)]="recipient" (ngModelChange)="selectRecipient($event)" class="user-list" >
+            <nz-option *ngFor="let user of filteredUsers" [nzValue]="user" [nzLabel]="user.name"></nz-option>
+        </nz-select>
+    </div>
+    <div class="messages" #messagesContainer>
+        <div class="messages-content" >
+            <div *ngFor="let message of messages" class="message" [ngClass]="{'message-personal': message.senderId.id === currentUser.id, 'message-received': message.senderId.id !== currentUser.id}">
+                <figure class="avatar">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg">
+                </figure>
+                <div>
+                    <strong>{{ message.senderName }}:</strong>
+                    {{ message.content }}
+                </div>
+                <div class="timestamp">{{ message.timestamp | date:'short' }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="message-box">
+        <textarea [(ngModel)]="newMessageContent" type="text" class="message-input" placeholder="Ecrivez votre message" (keydown.enter)="sendMessage()"></textarea>
+        <button (click)="sendMessage()" type="submit" class="message-submit">Envoyer</button>
+    </div>
+</div>

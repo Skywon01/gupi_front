@@ -1,0 +1,45 @@
+<div class="home-icon-container" nz-row nzJustify="space-between">
+    <div class="home-icon" routerLink="files"
+         style="background-color: #6087E2">
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/icon_file.svg" class="home-icon-section" height="80" width="80"
+                                            alt="icône flèche"></div>
+        <div class="home-icon-content text-light">Mes fichiers</div>
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/arrow_right.svg" height="48" width="48"
+                                            alt="icône flèche"></div>
+    </div>
+    <div class="home-icon" routerLink="notification"
+         style="background-color: #3CFA46">
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/icon_notif.svg" height="80" width="80"
+                                            alt="icône flèche"></div>
+        <div class="home-icon-content text-light">Notifications</div>
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/arrow_right.svg" height="48" width="48"
+                                            alt="icône flèche"></div>
+    </div>
+    <div class="home-icon" routerLink="materiel"
+         style="background-color: #FA3C89">
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/icon_computer.svg" height="80" width="80"
+                                            alt="icône flèche"></div>
+        <div class="home-icon-content text-light">Matériel</div>
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/arrow_right.svg" height="48" width="48"
+                                            alt="icône flèche"></div>
+    </div>
+    @if (this.apiService.isAuthorized("ADMIN")) {
+
+        <div class="home-icon" routerLink="rh"
+             style="background-color: #FAC23C">
+            <div class="home-icon-content"><img ngSrc="assets/media/icons/icon_rh.svg" height="80" width="80"
+                                                alt="icône flèche"></div>
+            <div class="home-icon-content text-light">Gestion RH</div>
+            <div class="home-icon-content"><img ngSrc="assets/media/icons/arrow_right.svg" height="48" width="48"
+                                                alt="icône flèche"></div>
+        </div>
+    }
+    <div class="home-icon" routerLink="profil"
+         style="background-color: #A55F7B">
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/icon_profile.svg" height="80" width="80"
+                                            alt="icône flèche"></div>
+        <div class="home-icon-content text-light">Mon profil</div>
+        <div class="home-icon-content"><img ngSrc="assets/media/icons/arrow_right.svg" height="48" width="48"
+                                            alt="icône flèche"></div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+nz-list{
+    margin-left: 16px;
+}
+.file-name{
+        &:hover{
+            cursor: pointer;
+            color: blue;
+        }
+}
+
+.block-point{
+    font-size: 32px;
+    align-content: center;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.block-point:hover{
+    cursor: pointer;
+}

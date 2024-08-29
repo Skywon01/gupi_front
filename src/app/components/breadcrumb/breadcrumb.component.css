@@ -1,0 +1,26 @@
+nz-breadcrumb {
+    height: 180px;
+    border-bottom: 1px solid #7B7B7B;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.breadcrumb-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0;
+    @media  (width <= 768px){
+        text-align: center;
+    }
+}
+
+.nz-icon {
+    font-size: 30px;
+}
+@media (width <=768px) {
+
+.breadcrumb-text-mobile{
+    display: none;
+}
+}

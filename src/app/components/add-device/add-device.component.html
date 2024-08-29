@@ -1,0 +1,40 @@
+<form (ngSubmit)="submitDevice()" [formGroup]="form" nz-form>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>Nom</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Veuillez entrer un nom">
+            <input formControlName="name" nz-input/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="price">Prix</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="le prix maximum est de 9999€">
+            <nz-input-number [nzMax]="9999" [nzMin]="0" formControlName="price" type="number"/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="category" nzRequired>Catégorie</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Veuillez entrer une catégorie">
+            <input formControlName="category" nz-input/>
+        </nz-form-control>
+    </nz-form-item>
+<!--    <nz-form-item>-->
+<!--        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="qr_code" nzRequired>QR code</nz-form-label>-->
+<!--        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">-->
+<!--            <input formControlName="qr_code" nz-input/>-->
+<!--        </nz-form-control>-->
+<!--    </nz-form-item>-->
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="possessor">Attribution</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+            <nz-select formControlName="user_id" nzPlaceHolder="Sélectionnez un utilisateur">
+                <nz-option *ngFor="let user of users" [nzLabel]="user.name" [nzValue]="user.id"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <button nz-button nzType="primary">Ajouter l'appareil</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

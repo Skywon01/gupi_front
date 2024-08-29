@@ -1,0 +1,31 @@
+<div class="login-page">
+    <div [nzAlign]="alignSegment[1]" [nzJustify]="justifySegment[1]" [nzVertical]="isVertical" class="login-container"
+         nz-flex>
+        <span class="icon" nz-icon nzTheme="outline" nzType="shop"></span>
+        <h1 class="login-title">Bienvenue sur GUPI</h1>
+        <h2 class="login-title">Veuillez vous connecter</h2>
+        <app-login-form></app-login-form>
+        <a (click)="showModal()">Comment utiliser l'application</a>
+
+        <nz-modal
+            [(nzVisible)]="isVisible"
+            [nzTitle]="modalTitle"
+            [nzContent]="modalContent"
+            [nzFooter]="modalFooter"
+            (nzOnCancel)="handleCancel()"
+        >
+            <ng-template #modalTitle>Instructions</ng-template>
+
+            <ng-template #modalContent>
+                <app-instructions></app-instructions>
+            </ng-template>
+
+            <ng-template #modalFooter>
+                <button nz-button nzType="default" (click)="handleCancel()">Fermer</button>
+
+            </ng-template>
+        </nz-modal>
+    </div>
+
+
+</div>

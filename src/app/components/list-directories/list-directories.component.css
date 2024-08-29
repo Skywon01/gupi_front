@@ -1,0 +1,65 @@
+.add-folder{
+    box-shadow: 0 4px 4px #00000025;
+    font-weight: 400;
+}
+.block-point{
+    font-size: 32px;
+    align-content: center;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.block-point:hover{
+    cursor: pointer;
+}
+
+.table-line {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px 0 16px;
+}
+
+.table-line-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+        :hover{
+            cursor: pointer;
+        }
+}
+
+
+.directory-text-container{
+    padding-left: 20px;
+}
+.directory-name{
+    font-size: 20px;
+    font-weight: bold;
+    color: #00000095;
+}
+
+.file-number {
+    color: #00000080;
+    font-weight: normal;
+}
+
+tr:nth-child(odd){
+    background-color: #D7D7D7;
+}
+tr:nth-child(even){
+    background-color: #FFFFFF;
+}
+
+.even-row {
+    background-color: #D7D7D7;
+}
+
+.odd-row {
+    background-color: #FFFFFF;
+}
+
+.directory-name-edit{
+    display: flex;
+    align-items: baseline;
+}

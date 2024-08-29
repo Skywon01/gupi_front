@@ -1,0 +1,24 @@
+<nz-table>
+    <thead>
+    <tr>
+        <th>Expéditeur</th>
+        <th>Fichier</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container>
+
+        @for (notification of notifications; track notification.id) {
+            <tr>
+                <td><span nz-icon nzType="bell" nzTheme="fill" style="color:#00000050; font-size: 50px;"></span>{{ notification.senderFirstName }} {{ notification.senderName }}</td>
+                <td>{{ notification.fileName }}</td>
+                <td>{{ notification.timestamp | date: 'medium': undefined : 'fr-FR'  }}</td>
+            </tr>
+
+
+        }
+    </ng-container>
+
+    </tbody>
+</nz-table>

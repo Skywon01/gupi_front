@@ -1,0 +1,25 @@
+.upload-profile-picture {
+    margin-top: 20px;
+}
+
+.upload-profile-picture button {
+    background-color: #6087E2;
+    color: white;
+    border-radius: 7px;
+    width: 150px;
+    height: 40px;
+    border: none;
+}
+.pic-edit{
+    font-size: 34px;
+    background-color: #4747b8;
+    border-radius: 50%;
+    color: white;
+    position: relative;
+    bottom: 50px;
+    left: 115px;
+    transition-duration: .3s;
+    &:hover{
+        scale: 1.1;
+    }
+}
