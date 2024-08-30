@@ -5,10 +5,11 @@ import {AuthService} from "../../services/authentification/auth.service";
 import {UserService} from "../../services/user.service";
 import {MessageDTO} from "../../model/message.model";
 import {NzIconDirective} from "ng-zorro-antd/icon";
-import {DatePipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {NzOptionComponent, NzSelectComponent} from "ng-zorro-antd/select";
 import {Subscription} from "rxjs";
+import {apiRoot} from "../../services/api.service";
 
 
 @Component({
@@ -23,7 +24,8 @@ import {Subscription} from "rxjs";
         NgClass,
         NgIf,
         NzSelectComponent,
-        NzOptionComponent
+        NzOptionComponent,
+        NgOptimizedImage
     ],
     styleUrls: ['./chat.component.css']
 })
@@ -37,6 +39,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
     chatIsOpen: boolean = false;
     private pollingSubscription!: Subscription;
     @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
+    profileImageUrl: string | null = null;
+    currentUserProfile: string | null = null;
 
     constructor(
         private messageService: MessageService,
@@ -64,6 +68,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
         const user = this.authService.getUser();
         if (user) {
             this.currentUser = user;
+            const userId = this.currentUser.id
+            this.currentUserProfile = `${apiRoot}/users/profile-image/${userId}`;
             // console.log('Utilisateur courant:', this.currentUser);
         }
     }
@@ -113,6 +119,9 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
 
     selectRecipient(user: UserModel): void {
         this.recipient = user;
+
+        const userId = this.recipient.id
+        this.profileImageUrl = `${apiRoot}/users/profile-image/${userId}`;
         // console.log('Destinataire sélectionné:', this.recipient);
         this.loadMessages();
     }

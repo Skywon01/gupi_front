@@ -4,7 +4,7 @@
         <h1>{{ recipient?.name || 'Sélectionnez un utilisateur' }}</h1>
         <span nz-icon nzType="close" nzTheme="outline" (click)="chatIsOpen = !chatIsOpen" class="close"></span>
         <figure class="avatar">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" />
+            <img src="{{ profileImageUrl }}" />
         </figure>
     </div>
     <div class="user-list-container">
@@ -15,9 +15,16 @@
     <div class="messages" #messagesContainer>
         <div class="messages-content" >
             <div *ngFor="let message of messages" class="message" [ngClass]="{'message-personal': message.senderId.id === currentUser.id, 'message-received': message.senderId.id !== currentUser.id}">
+                @if(message.senderId.id === recipient.id){
+
                 <figure class="avatar">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg">
+                    <img src="{{ profileImageUrl }}" alt="{{ recipient.name }} {{ recipient.firstName }}">
                 </figure>
+                }@else{
+                <figure class="avatar">
+                    <img src="{{ currentUserProfile }}" alt="{{ currentUser.name }} {{ currentUser.firstName }}">
+                </figure>
+                }
                 <div>
                     <strong>{{ message.senderName }}:</strong>
                     {{ message.content }}
