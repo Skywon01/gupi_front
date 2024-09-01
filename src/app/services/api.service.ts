@@ -5,7 +5,7 @@ import {AuthService} from "./authentification/auth.service";
 /**
  * Nom de domaine de l'api GUPI en environnement de développement local
  */
-export const apiRoot = "92.113.31.127:8080/api"
+export const apiRoot = "http://92.113.31.127:8080/api"
 
 /**
  * Ici on commence la communication Http
