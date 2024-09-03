@@ -12,7 +12,6 @@ import {Router} from "@angular/router";
 export class AuthService {
     private currentUserSubject: BehaviorSubject<UserModel | null>;
     public currentUser$: Observable<UserModel | null>;
-    private tokenKey = 'jwt_token';
 
     constructor(private http: HttpClient, private router: Router) {
         this.currentUserSubject = new BehaviorSubject<UserModel | null>(this.getUserFromSession());
@@ -27,23 +26,15 @@ export class AuthService {
     login(email: string | undefined, password: string | undefined): Observable<any> {
         return this.http.post<any>(`${apiRoot}/login`, {email, password}, {withCredentials: true})
             .pipe(tap(response => {
-                if (response && response.token) {
+                if (response) {
                     // console.log("Response User: ", response.user);
                     // console.log("Response Roles: ", response.roles);
-                    this.setToken(response.token);
                     sessionStorage.setItem('user', JSON.stringify(response.user));
                     sessionStorage.setItem('roles', JSON.stringify(response.roles));
                     this.currentUserSubject.next(response.user);
                     // this.router.navigate(['/']);
                 }
             }));
-    }
-    private setToken(token: string): void {
-        localStorage.setItem(this.tokenKey, token);
-    }
-
-    getToken(): string | null {
-        return localStorage.getItem(this.tokenKey);
     }
 
     /**
@@ -105,7 +96,7 @@ export class AuthService {
      * Redirige vers login ou accueil
      */
     isAuthenticated(): boolean {
-        return !!this.getUser() && !!this.getToken(); // Vérifiez aussi la présence du token
+        return !!this.getUser();
     }
 
 }
