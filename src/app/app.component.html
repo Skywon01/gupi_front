@@ -3,11 +3,12 @@
               nzCollapsible
               nzWidth="256px"
               nzBreakpoint="md"
+              [nzCollapsedWidth]="0"
               [(nzCollapsed)]="isCollapsed"
               [nzTrigger]="null">
         <div class="sidebar-logo">
             <a routerLink="">
-                <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+                <img ngSrc="https://ng.ant.design/assets/img/logo.svg" alt="logo" width="48" height="48">
                 <h1>GUPI</h1>
             </a>
         </div>
@@ -16,71 +17,76 @@
             @if (!isCollapsed) {
                 <div routerLink="/files" class="menu-item" routerLinkActive="active-link"
                      style="background-color: #6087E2">
-                    <img src="assets/media/icons/icon_file.svg" alt="Icône fichier" width="48">
+                    <img ngSrc="assets/media/icons/icon_file.svg" alt="Icône fichier" width="48" height="48">
 
                     <a class="menu-icon">Mes fichiers</a>
-                    <img src="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow">
+                    <img ngSrc="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow"
+                         height="44" width="44">
                 </div>
             } @else {
-                <a class="menu-icon-collapsed" routerLink="/files"><img src="assets/media/icons/icon_file.svg"
-                                                                                alt="Icône fichier"
-                                                                                routerLinkActive="active-link active-link-collapsed"
-                                                                                width="36"></a>
+                <a class="menu-icon-collapsed" routerLink="/files"><img ngSrc="assets/media/icons/icon_file.svg"
+                                                                        alt="Icône fichier"
+                                                                        routerLinkActive="active-link active-link-collapsed"
+                                                                        width="36" height="36"></a>
             }
             @if (!isCollapsed) {
                 <div routerLink="/notification" class="menu-item" routerLinkActive="active-link"
                      style="background-color: #3CFA46">
-                    <img src="assets/media/icons/icon_notif.svg" alt="Icône notifications" width="48">
+                    <img ngSrc="assets/media/icons/icon_notif.svg" alt="Icône notifications" width="48" height="48">
 
                     <a class="menu-icon">Notifications</a>
-                    <img src="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow">
+                    <img ngSrc="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow"
+                         height="44" width="44">
                 </div>
             } @else {
                 <a class="menu-icon-collapsed" routerLink="/notification"><img
-                    src="assets/media/icons/icon_notif.svg" alt="Icône notifications" width="36"
-                    routerLinkActive="active-link active-link-collapsed"></a>
+                    ngSrc="assets/media/icons/icon_notif.svg" alt="Icône notifications" width="36"
+                    routerLinkActive="active-link active-link-collapsed" height="36"></a>
             }
             @if (!isCollapsed) {
                 <div routerLink="/materiel" class="menu-item" routerLinkActive="active-link"
                      style="background-color: #FA3C89">
-                    <img src="assets/media/icons/icon_computer.svg" alt="Icône matériel" width="48">
+                    <img ngSrc="assets/media/icons/icon_computer.svg" alt="Icône matériel" width="48" height="48">
 
                     <a class="menu-icon">Matériel</a>
-                    <img src="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow">
+                    <img ngSrc="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow"
+                         height="44" width="44">
                 </div>
             } @else {
                 <a class="menu-icon-collapsed" routerLink="/materiel" routerLinkActive="active-link"><img
-                    src="assets/media/icons/icon_computer.svg" alt="Icône matériel" width="36"
-                    routerLinkActive="active-link active-link-collapsed"></a>
+                    ngSrc="assets/media/icons/icon_computer.svg" alt="Icône matériel" width="36"
+                    routerLinkActive="active-link active-link-collapsed" height="36"></a>
             }
             @if (this.apiService.isAuthorized("ADMIN")){
 
             @if (!isCollapsed) {
                 <div routerLink="/rh" class="menu-item" routerLinkActive="active-link"
                      style="background-color: #FAC23C">
-                    <img src="assets/media/icons/icon_rh.svg" alt="Icône rh" width="48">
+                    <img ngSrc="assets/media/icons/icon_rh.svg" alt="Icône rh" width="48" height="48">
 
                     <a class="menu-icon">Gestion RH</a>
-                    <img src="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow">
+                    <img ngSrc="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow"
+                         height="44" width="44">
                 </div>
             } @else {
                 <a class="menu-icon-collapsed" routerLink="/rh" routerLinkActive="active-link"><img
-                    src="assets/media/icons/icon_rh.svg" alt="Icône rh" width="36"
-                    routerLinkActive="active-link active-link-collapsed"></a>
+                    ngSrc="assets/media/icons/icon_rh.svg" alt="Icône rh" width="36"
+                    routerLinkActive="active-link active-link-collapsed" height="36"></a>
             }
             }
             @if (!isCollapsed) {
                 <div routerLink="/profil" class="menu-item" routerLinkActive="active-link"
                      style="background-color: #A55F7B">
-                    <img src="assets/media/icons/icon_profile.svg" alt="Icône profil" width="48">
+                    <img ngSrc="assets/media/icons/icon_profile.svg" alt="Icône profil" width="48" height="48">
 
                     <a class="menu-icon">Mon profil</a>
-                    <img src="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow">
+                    <img ngSrc="assets/media/icons/arrow_right.svg" alt="Icône flèche" class="menu-item-arrow"
+                         height="44" width="44">
                 </div>
             } @else {
                 <a class="menu-icon-collapsed" routerLink="/profil" routerLinkActive="active-link"><img
-                    src="assets/media/icons/icon_profile.svg" alt="Icône profil" width="36"
-                    routerLinkActive="active-link active-link-collapsed"></a>
+                    ngSrc="assets/media/icons/icon_profile.svg" alt="Icône profil" width="36"
+                    routerLinkActive="active-link active-link-collapsed" height="36"></a>
             }
 
 

@@ -27,6 +27,11 @@ export class AuthService {
         return this.http.post<any>(`${apiRoot}/login`, {email, password}, {withCredentials: true})
             .pipe(tap(response => {
                 if (response) {
+                    // console.log('Response headers:', response.headers.keys());
+                    // console.log('Set-Cookie header:', response.headers.get('Set-Cookie'));
+                    //
+                    // const cookies = document.cookie;
+                    // console.log('Cookies after login:', cookies);
                     // console.log("Response User: ", response.user);
                     // console.log("Response Roles: ", response.roles);
                     sessionStorage.setItem('user', JSON.stringify(response.user));
