@@ -1,4 +1,4 @@
-<nz-table [nzData]="tuyauDeDevices" nzTableLayout="fixed">
+<nz-table [nzData]="tuyauDeDevices" nzTableLayout="fixed" [nzScroll]="{ x: '700px', y: '' }">
     <thead>
     <tr>
         <th>Nom</th>
@@ -27,7 +27,7 @@
                            (nzOnConfirm)="unsetDevice(device.id)"
                            nzOkText="Oui"
                            nzCancelText="Non">
-                        <span nz-icon nzType="close" nzTheme="outline" style="font-size: 24px; color: red"></span>
+                        <span nz-icon nzType="close" nzTheme="outline" style="font-size: 24px; color: red" title="Retirer l'attribution"></span>
                     </a>
                     </td>
                 </tr>

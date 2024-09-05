@@ -16,7 +16,7 @@
     margin-bottom: 14px;
     width: 60vw;
     @media (width <=768px){
-
+width: 100vw;
     }
 }
 

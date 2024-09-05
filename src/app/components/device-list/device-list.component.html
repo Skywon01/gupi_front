@@ -1,4 +1,4 @@
-<nz-table [nzData]="tuyauDeDevices" nzTableLayout="fixed">
+<nz-table [nzData]="tuyauDeDevices" nzTableLayout="fixed" [nzScroll]="{ x: '1100px', y: '' }">
     <thead>
     <tr>
         <th>Nom</th>
@@ -37,7 +37,7 @@
                            (nzOnConfirm)="deleteDevice(device.id)"
                            nzOkText="Oui"
                            nzCancelText="Non">
-                            <span nz-icon nzType="close" nzTheme="outline" style="font-size: 24px; color: red"></span>
+                            <span nz-icon nzType="close" nzTheme="outline" style="font-size: 24px; color: red" title="Supprimer l'appareil"></span>
                         </a>
                     </td>
 
